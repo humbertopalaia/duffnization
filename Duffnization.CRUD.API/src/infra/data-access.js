@@ -15,8 +15,6 @@ const sqlConfig = {
 	}
 }
 
-console.log(sqlConfig);
-
 module.exports = {
 	execQuery: async function (sqlQry, callBack) {
 

@@ -16,6 +16,17 @@ module.exports = {
         callBack(null);
     });
   },
+  getByTemperature: function (temperature, callBack) {
+
+    const sqlCommand = `SELECT id, name, minTemperature, maxTemperature, ((minTemperature+maxTemperature)/2) averageTemperature, createDate, updateDate FROM BeerStyle WHERE ${temperature} BETWEEN minTemperature AND maxTemperature ORDER BY Id`;
+    
+    dataAccess.execQuery(sqlCommand, function (result) {
+      if (result)
+        callBack(result);
+      else
+        callBack(null);
+    });
+  },
   insert: function (beerStyle, callBack) {
     let params = [];
     params.push({ name: 'name', type: TYPES.VarChar, value: beerStyle.name });

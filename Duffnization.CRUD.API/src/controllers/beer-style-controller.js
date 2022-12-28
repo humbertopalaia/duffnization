@@ -16,12 +16,27 @@ module.exports = {
                 if (beetStyle != null)
                     res.send(beetStyle);
                 else
-                    res.status(401).send('Id not found');
+                    res.status(401).send('id not found');
             })
         }
         else
-            res.status(403).send('Parâmetro id é obrigatório');
+            res.status(403).send('id not supplied');
     },
+
+    getByTemperature(req, res)
+    {
+        if (req.query.temperature) {
+            beerStyleService.getByTemperature(req.query.temperature, (list) => {
+                if (list != null)
+                    res.send(list);
+                else
+                    res.status(401).send('No data found');
+            })
+        }
+        else
+            res.status(403).send('temperature not supplied');
+    },
+
     insert(req,res)
     {
         beerStyleService.insert(req.body, (result) => {

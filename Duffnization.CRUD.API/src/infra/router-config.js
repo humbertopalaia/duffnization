@@ -23,6 +23,10 @@ module.exports = {
             beerStyleController.getById(req,res);
         });
 
+        app.get('/beer-style/getByTemperature', (req, res) => {
+            beerStyleController.getByTemperature(req,res);
+        });
+
 
         app.put('/beer-style/insert', middleware.checkToken,(req, res) => {
             beerStyleController.insert(req,res);          
