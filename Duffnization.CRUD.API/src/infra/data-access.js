@@ -3,8 +3,6 @@ const sql = require('mssql')
 require('dotenv').config();
 
 
-console.log(process.env.USERDB);
-
 const sqlConfig = {
 	user: `${process.env.USERDB}`,
 	password: `${process.env.PASSWORDDB}`,
@@ -16,6 +14,8 @@ const sqlConfig = {
 		enableArithAbort: true
 	}
 }
+
+console.log(sqlConfig);
 
 module.exports = {
 	execQuery: async function (sqlQry, callBack) {
