@@ -6,7 +6,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();         
 const bodyParser = require('body-parser');
-const porta = 8000; //porta padrão
+const porta = 8000; //default port
 
 console.log('Constantes definidas');
 
@@ -15,7 +15,7 @@ function main () {
 	
 	console.log('Definindo configurações básicas');
 	let app = express(); // Export app for other routes to use
-	const port = process.env.PORT || porta;
+	const port = process.env.SERVERPORT || porta;
 
 	app.use(bodyParser.urlencoded({ // Middleware
 		extended: true
