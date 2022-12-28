@@ -1,6 +1,6 @@
 console.log('Definindo constantes');
 
-const routerConfig = require('./router-config');
+const routerConfig = require('./infra/router-config');
 
 const express = require('express');
 const app = express();         

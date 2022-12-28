@@ -21,7 +21,7 @@ module.exports = {
 			const result = await sql.query(sqlQry);
 			callBack(result.recordset);
 		} catch (err) {
-			console.log(err);
+			callBack(null, err);
 		}
 	},
 	execQueryParam: async function (query, params, callBack) {
@@ -46,7 +46,7 @@ module.exports = {
 			callBack(result.recordset);
 
 		} catch (err) {
-			console.log(err);
+			callBack(null, err);
 		}
 	}
 };
