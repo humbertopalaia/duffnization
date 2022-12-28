@@ -165,3 +165,8 @@ __pycache__
 # === Rules for C++ development ===
 compile_commands.json
 /Duffnization.API/obj
+/Duffnization.API/Duffnization.API/obj
+/Duffnization.API/Duffnization.Business/obj
+/Duffnization.API/Duffnization.Domain/obj
+/Duffnization.API/Duffnization.Spotfy/obj
+/Duffnization.API/Duffnization.Test/obj
