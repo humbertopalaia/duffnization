@@ -25,7 +25,7 @@ module.exports = {
     params.push({name:'minTemperature', type:TYPES.SmallInt, value: coffeStyle.minTemperature});
     params.push({name:'maxTemperature', type:TYPES.SmallInt, value: coffeStyle.maxTemperature});
 
-    dataAccess.execQueryParam('INSERT INTO CoffeStyle ([Name], Active, MinTemperature, MaxTemperature, CreateDate) OUTPUT INSERTED.id VALUES(@name, @active, @minTemperature, @maxTemperature, GETDATE())', params, function(result)
+    dataAccess.execQueryParam('INSERT INTO CoffeStyle ([Name], Active, MinTemperature, MaxTemperature, CreateDate) OUTPUT INSERTED.* VALUES(@name, @active, @minTemperature, @maxTemperature, GETDATE())', params, function(result)
     {
       if(result  && result.length > 0)
         callBack(result[0]);
