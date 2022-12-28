@@ -43,9 +43,9 @@ module.exports = {
                 else
                     res.status(200).send('success');    
             });
-    }
-    else
-        res.status(400).send('Parâmetro id é obrigatório');
+        }
+        else
+           res.status(400).send('Parâmetro id é obrigatório');
     },
     update(req,res)
     {

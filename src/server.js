@@ -2,6 +2,7 @@ console.log('Definindo constantes');
 
 const routerConfig = require('./infra/router-config');
 
+require('dotenv').config();
 const express = require('express');
 const app = express();         
 const bodyParser = require('body-parser');
@@ -13,7 +14,6 @@ console.log('Constantes definidas');
 function main () {
 	
 	console.log('Definindo configurações básicas');
-
 	let app = express(); // Export app for other routes to use
 	const port = process.env.PORT || porta;
 

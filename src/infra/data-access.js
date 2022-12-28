@@ -1,12 +1,16 @@
 //var sql = require('msnodesqlv8');
 const sql = require('mssql')
+require('dotenv').config();
+
+
+console.log(process.env.USERDB);
 
 const sqlConfig = {
-	user: 'sa',
-	password: '@sa123456',
-	database: 'Duffnization',
-	server: 'localhost',
-	port: 1433,
+	user: `${process.env.USERDB}`,
+	password: `${process.env.PASSWORDDB}`,
+	database: `${process.env.INITIALCATALOGDB}`,
+	server: `${process.env.SERVERDB}`,
+	port: parseInt(process.env.PORTDB),
 	options: {
 		trustServerCertificate: true, // change to true for local dev / self-signed certs
 		enableArithAbort: true
