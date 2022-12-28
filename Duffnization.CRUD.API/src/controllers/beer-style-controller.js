@@ -60,7 +60,7 @@ module.exports = {
             });
         }
         else
-           res.status(400).send('Parâmetro id é obrigatório');
+           res.status(400).send('id not supplied');
     },
     update(req,res)
     {

@@ -1,21 +1,21 @@
-console.log('Definindo constantes');
+console.log('Configuring constants');
 
 const routerConfig = require('./infra/router-config');
 
 require('dotenv').config();
 const express = require('express');
+
 const app = express();         
 const bodyParser = require('body-parser');
-const porta = 8000; //default port
+const port = process.env.SERVERPORT || 8000;
 
-console.log('Constantes definidas');
+console.log('Constants configured');
 
 // Starting point of the server
 function main () {
 	
-	console.log('Definindo configurações básicas');
+	console.log('Starting main process');
 	let app = express(); // Export app for other routes to use
-	const port = process.env.SERVERPORT || porta;
 
 	app.use(bodyParser.urlencoded({ // Middleware
 		extended: true
@@ -23,17 +23,14 @@ function main () {
 	
 	app.use(bodyParser.json());
 	
-	console.log('Configurações básicas definidas');
-	
-	
-	console.log('Definindo rotas');
+	console.log('Configuring routes');
 	
 	routerConfig.configureRoutes(app, function()
 	{
-		console.log('Rotas definidas');
+		console.log('Routes configured');
 
 		app.listen(port, () => {
-			console.log(`Servidor está escutando a porta: ${port}`, true);		
+			console.log(`Server listening port: ${port}`, true);		
 		});
 
 	});

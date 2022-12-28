@@ -16,15 +16,15 @@ module.exports = {
             );
             // return the JWT token for the future API calls
             res.send({
-                sucesso: true,
-                mensagem: 'Authentication successfully',
+                success: true,
+                message: 'Authentication successfully',
                 token: token
             });
         }
         else {
-            res.status(400).json({
-                sucesso: false,
-                mensagem: 'Invalid credentials'
+            res.status(401).json({
+                success: false,
+                message: 'Invalid credentials'
             });
         }
     }
