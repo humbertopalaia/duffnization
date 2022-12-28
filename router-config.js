@@ -24,7 +24,15 @@ module.exports = {
             res.send('Parâmetro id é obrigatório');
         
     });
-    
+
+    app.put('/coffe-style/insert', (req, res) =>
+    {
+        coffeStyleService.insert(req.body, (result) =>
+        {
+            res.send(result);
+        });
+    });
+
     // app.post('/amigo/novo', middleware.checkToken, (req, res, next) => {
 	// 	amigo.incluir(req.body, function(results)
 	// 	{
