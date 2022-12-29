@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Duffnization.Test", "..\Duf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Duffnization.CRUD", "..\Duffnization.CRUD\Duffnization.CRUD.csproj", "{3B327E21-1688-4DA1-8864-04A62506C62B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integrations", "Integrations", "{ADB17BAB-2D98-455A-A633-1C381A5881CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{BD85292B-99F9-4591-8CBF-B5BD33273687}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{373E78BA-CBDE-418D-943C-D1DB3C38652D} = {BD85292B-99F9-4591-8CBF-B5BD33273687}
+		{998E7462-B436-458B-A750-5820D7AB1E36} = {BD85292B-99F9-4591-8CBF-B5BD33273687}
+		{16972DF2-FE4F-4CD5-8D9B-B80F10E78277} = {ADB17BAB-2D98-455A-A633-1C381A5881CF}
+		{3B327E21-1688-4DA1-8864-04A62506C62B} = {ADB17BAB-2D98-455A-A633-1C381A5881CF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD95FF06-D970-4DF5-BE5D-47707691C5B2}
