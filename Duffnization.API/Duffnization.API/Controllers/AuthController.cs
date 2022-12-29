@@ -28,15 +28,15 @@ namespace Duffnization.API.Controllers
 
             try
             {
-                
-                token = GenerateToken(10);
-                //if(systemClient != null)
-                //{
-                //}
-                //else
-                //{
-                //    return Unauthorized("Invalid credentials");
-                //}
+                var username = _configuration["Jwt:Username"];
+                var password = _configuration["Jwt:Password"];
+
+                if(username == model.Username && password == model.Password)
+                {
+                    token = GenerateToken(model.Username);
+                }
+                else
+                    return StatusCode(401, "Invalid credentials");
             }
             catch (Exception ex)
             {
@@ -47,7 +47,7 @@ namespace Duffnization.API.Controllers
             return Json(new { Success = true, Token = token });
         }
 
-        private string GenerateToken(int systemClientId)
+        private string GenerateToken(string username)
         {
 
             var issuer = _configuration["Jwt:Issuer"];
@@ -59,8 +59,8 @@ namespace Duffnization.API.Controllers
                 Subject = new ClaimsIdentity(new[]
                 {
                 new Claim("Id", Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Sub, systemClientId.ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, systemClientId.ToString()),
+                new Claim(JwtRegisteredClaimNames.Sub, username),
+                new Claim(JwtRegisteredClaimNames.Email, username),
                 new Claim(JwtRegisteredClaimNames.Jti,
                 Guid.NewGuid().ToString())
              }),
@@ -73,7 +73,6 @@ namespace Duffnization.API.Controllers
             };
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            var jwtToken = tokenHandler.WriteToken(token);
             var stringToken = tokenHandler.WriteToken(token);
 
             return stringToken;

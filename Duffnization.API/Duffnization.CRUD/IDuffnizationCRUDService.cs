@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using Duffnization.CRUD.Domains;
 using Duffnization.CRUD.Domains.Search;
 
-namespace Duffnization.Spotify
+namespace Duffnization.CRUD
 {
     public interface IDuffnizationCRUDService
     {
         Task<DuffnizationCRUDToken> GetTokenAsync();
-        Task<List<BeetStyle>> GetByTemperature(int temperature);
+        Task<List<BeerStyle>> ListAll();
     }
 }

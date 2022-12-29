@@ -39,6 +39,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Duffnization.Business\Duffnization.Business.csproj" />
+    <ProjectReference Include="..\Duffnization.CRUD\Duffnization.CRUD.csproj" />
+    <ProjectReference Include="..\Duffnization.Spotfy\Duffnization.Spotify.csproj" />
   </ItemGroup>
 
 </Project>

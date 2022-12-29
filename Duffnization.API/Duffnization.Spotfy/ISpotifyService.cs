@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Duffnization.Spotify.Domains;
+using Duffnization.Spotify.Domains.GetTracksPlaylist;
 using Duffnization.Spotify.Domains.Search;
 
 namespace Duffnization.Spotify
@@ -12,5 +13,6 @@ namespace Duffnization.Spotify
     {
         Task<SpotifyToken> GetTokenAsync();
         Task<SpotifySearch> SearchPlaylist(string playlist);
+        Task<TracksPlaylist> GetTracksPlaylist(string playlistId);
     }
 }

@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Duffnization.CRUD\Duffnization.CRUD.csproj" />
     <ProjectReference Include="..\Duffnization.Domain\Duffnization.Domain.csproj" />
+    <ProjectReference Include="..\Duffnization.Spotfy\Duffnization.Spotify.csproj" />
   </ItemGroup>
 
 </Project>

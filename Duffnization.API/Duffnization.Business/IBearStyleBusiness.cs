@@ -9,6 +9,7 @@ namespace Duffnization.Business
 {
     public interface IBearStyleBusiness
     {
-        BearStyle GetByTemperature(int temperature);
+        Task<BeerStyle> GetPlaylistSugestionByTemperature(int temperature);
+        Task<BeerStyle> GetPlaylistSugestionByBeerStyle(string beerStyle);
     }
 }

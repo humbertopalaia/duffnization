@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization; 
 namespace Duffnization.CRUD.Domains.Search{ 
 
-    public class BeetStyle
+    public class BeerStyle
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Duffnization.CRUD.Domains;
 using Duffnization.CRUD.Domains.Search;
 
-namespace Duffnization.Spotify
+namespace Duffnization.CRUD
 {
     public class DuffnizationCRUDService : IDuffnizationCRUDService
     {
@@ -19,9 +19,9 @@ namespace Duffnization.Spotify
             _config = config;
         }
 
-        public async Task<List<BeetStyle>> GetByTemperature(int temperature)
+        public async Task<List<BeerStyle>> ListAll()
         {
-            List<BeetStyle> listReturn= new List<BeetStyle>();
+            List<BeerStyle> listReturn= new List<BeerStyle>();
 
             var token = await GetTokenAsync();
             if (token.Success)
@@ -35,15 +35,15 @@ namespace Duffnization.Spotify
                         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.Token);
 
                         //Request Token
-                        var request = await client.GetAsync(_config.BaseApiUrl + $"/beer-style/getByTemperature?temperature={temperature}");
+                        var request = await client.GetAsync(_config.BaseApiUrl + $"/beer-style/listall");
                         var response = await request.Content.ReadAsStringAsync();
-                        listReturn = System.Text.Json.JsonSerializer.Deserialize<List<BeetStyle>>(response);
+                        listReturn = System.Text.Json.JsonSerializer.Deserialize<List<BeerStyle>>(response);
                         return listReturn;
                     }
                 }
                 catch (Exception)
                 {
-                    return new List<BeetStyle>();
+                    return new List<BeerStyle>();
                 }
             }
             else

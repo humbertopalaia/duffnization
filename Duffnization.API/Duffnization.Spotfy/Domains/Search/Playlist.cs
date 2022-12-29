@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 using System.Collections.Generic; 
 namespace Duffnization.Spotify.Domains.Search{ 
 
-    public class Playlists
+    public class Playlist
     {
         [JsonPropertyName("href")]
         public string Href { get; set; }

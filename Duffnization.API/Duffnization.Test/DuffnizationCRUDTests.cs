@@ -1,3 +1,4 @@
+using Duffnization.CRUD;
 using Duffnization.CRUD.Domains;
 using Duffnization.Spotify;
 using Duffnization.Spotify.Domains;
@@ -28,9 +29,9 @@ namespace Duffnization.Test
         }
 
         [Test]
-        public async Task GetByTemperature()
+        public async Task ListAll()
         {
-            var response = await _duffnizationCRUDService.GetByTemperature(-2);
+            var response = await _duffnizationCRUDService.ListAll();
 
             Assert.IsNotNull(response);
             Assert.IsTrue(response.Count > 0);

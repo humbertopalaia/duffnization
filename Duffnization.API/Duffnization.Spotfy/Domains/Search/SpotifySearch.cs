@@ -4,7 +4,7 @@ namespace Duffnization.Spotify.Domains.Search{
     public class SpotifySearch
     {
         [JsonPropertyName("playlists")]
-        public Playlists Playlists { get; set; }
+        public Playlist Playlists { get; set; }
     }
 
 }

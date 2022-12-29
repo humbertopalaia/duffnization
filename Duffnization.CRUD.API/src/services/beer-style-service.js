@@ -6,7 +6,7 @@ const lodash = require('lodash');
 module.exports = {
 
   listAll: function (callBack) {
-    dataAccess.execQuery('SELECT id, name, minTemperature, maxTemperature, ((minTemperature+maxTemperature)/2) avegareTemperature, createDate, updateDate FROM BeerStyle', callBack);
+    dataAccess.execQuery('SELECT id, name, minTemperature, maxTemperature, ((minTemperature+maxTemperature)/2) averageTemperature, createDate, updateDate FROM BeerStyle', callBack);
   },
   getById: function (id, callBack) {
     dataAccess.execQuery(`SELECT id, name, minTemperature, maxTemperature, createDate, updateDate FROM BeerStyle WHERE Id = ${id}`, function (result) {

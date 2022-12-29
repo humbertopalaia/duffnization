@@ -27,12 +27,38 @@ namespace Duffnization.Test
             Assert.IsNotNull(spotifyToken);
         }
 
-        [Test]
-        public async Task SearchPlaylist()
+        [TestCase("Simpson")]
+        public async Task SearchPlaylist(string playlistName)
         {
-            var response = await _spotifyService.SearchPlaylist("Simpson");
+            var response = await _spotifyService.SearchPlaylist(playlistName);
 
             Assert.IsNotNull(response);
+        }
+
+        [TestCase("djkfior4ejofsdnmdsamklewqo")]
+        public async Task SearchPlaylistNotFound(string playlistName)
+        {
+            var response = await _spotifyService.SearchPlaylist(playlistName);
+
+            Assert.IsTrue(response.Playlists.Items.Count == 0);
+        }
+
+        [TestCase("idinvalido")]
+        public async Task TestInvalidGetTracksPlaylist(string playlistId)
+        {
+            var response = await _spotifyService.GetTracksPlaylist(playlistId);
+
+            Assert.IsTrue(string.IsNullOrEmpty(response.Href));
+        }
+
+
+
+        [TestCase("1Ombu7CWZoaQEILrWIiZI0")]
+        public async Task TestValidGetTracksPlaylist(string playlistId)
+        {
+            var response = await _spotifyService.GetTracksPlaylist(playlistId);
+
+            Assert.IsTrue(response.Href == "https://api.spotify.com/v1/playlists/1Ombu7CWZoaQEILrWIiZI0/tracks?offset=0&limit=100");
         }
     }
 }

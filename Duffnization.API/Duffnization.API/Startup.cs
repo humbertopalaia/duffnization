@@ -1,4 +1,8 @@
 ﻿using Duffnization.Business;
+using Duffnization.CRUD;
+using Duffnization.CRUD.Domains;
+using Duffnization.Spotify;
+using Duffnization.Spotify.Domains;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -29,7 +33,31 @@ namespace Duffnization.API
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddScoped<DuffnizationCRUDConfig, DuffnizationCRUDConfig>(x => new DuffnizationCRUDConfig
+            {
+                BaseApiUrl = _configuration["CRUD:BaseURL"],
+                Username = _configuration["CRUD:Username"],
+                Password = _configuration["CRUD:Password"],
+            });
+
             services.AddScoped<IBearStyleBusiness, BearStyleBusiness>();
+
+
+            services.AddScoped<IDuffnizationCRUDService, DuffnizationCRUDService>();
+
+
+
+            services.AddScoped<SpotifyConfig, SpotifyConfig>(x => new SpotifyConfig
+            {
+                BaseApiUrl = _configuration["Spotify:BaseApiUrl"],
+                AuthUrl = _configuration["Spotify:AuthUrl"],
+                ClientId = _configuration["Spotify:ClientId"],
+                ClientSecret = _configuration["Spotify:ClientSecret"],
+            });
+
+            services.AddScoped<ISpotifyService, SpotifyService>();
 
 
             services.AddAuthentication(options =>

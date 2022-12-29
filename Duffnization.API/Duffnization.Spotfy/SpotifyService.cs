@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Duffnization.Spotify.Domains;
+using Duffnization.Spotify.Domains.GetTracksPlaylist;
 using Duffnization.Spotify.Domains.Search;
 
 namespace Duffnization.Spotify
@@ -91,9 +92,37 @@ namespace Duffnization.Spotify
             }
         }
 
-        //public string SearchPlaylist(string playlistName)
-        //{
-        //    Ht
-        //}
+        public async Task<TracksPlaylist> GetTracksPlaylist(string playlistId)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    if (string.IsNullOrEmpty(playlistId))
+                        return null;
+
+                    var url = _config.BaseApiUrl + $"/v1/playlists/{playlistId}/tracks";
+                    var spotifyToken = await GetTokenAsync();
+
+                    if (spotifyToken != null)
+                    {
+                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", spotifyToken.AccessToken);
+
+                        //Prepare Request Body
+                        //Request Token
+                        var request = await client.GetAsync(url);
+                        var response = await request.Content.ReadAsStringAsync();
+                        return System.Text.Json.JsonSerializer.Deserialize<TracksPlaylist>(response);
+                    }
+                    else
+                        return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
     }
 }
