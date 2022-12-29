@@ -6,23 +6,12 @@ const lodash = require('lodash');
 module.exports = {
 
   listAll: function (callBack) {
-    dataAccess.execQuery('SELECT id, name, minTemperature, maxTemperature, createDate, updateDate FROM BeerStyle', callBack);
+    dataAccess.execQuery('SELECT id, name, minTemperature, maxTemperature, ((minTemperature+maxTemperature)/2) avegareTemperature, createDate, updateDate FROM BeerStyle', callBack);
   },
   getById: function (id, callBack) {
     dataAccess.execQuery(`SELECT id, name, minTemperature, maxTemperature, createDate, updateDate FROM BeerStyle WHERE Id = ${id}`, function (result) {
       if (result && result.length > 0)
         callBack(result[0]);
-      else
-        callBack(null);
-    });
-  },
-  getByTemperature: function (temperature, callBack) {
-
-    const sqlCommand = `SELECT id, name, minTemperature, maxTemperature, ((minTemperature+maxTemperature)/2) averageTemperature, createDate, updateDate FROM BeerStyle WHERE ${temperature} BETWEEN minTemperature AND maxTemperature ORDER BY Id`;
-    
-    dataAccess.execQuery(sqlCommand, function (result) {
-      if (result)
-        callBack(result);
       else
         callBack(null);
     });
