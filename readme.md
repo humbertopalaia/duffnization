@@ -62,10 +62,11 @@ API em .NET 6 (C#) responsável por:
           2. Abra a pasta do projeto Duffnization.CRUD.API
           3. No arquivo .env localizado no diretório da aplicação, configure as credenciais de acesso 
           e o caminho do banco de dados instalado via docker.
-          3. No terminal, execute o comando "node .\src\server.js", sem as aspas
+          3. No terminal, execute o comando "npm start", sem as aspas
 
           
-           OBS: Por default, a aplicação irá rodar na porta 8000, caso por algum motivo precise alterar, a configuração estão no arquivo .env na raiz da aplicação
+           OBS: Por default, a aplicação irá rodar na porta 8000, caso por algum motivo precise alterar, 
+           a configuração estão no arquivo .env na raiz da aplicação
 
     - Duffnization.API (C# .NET 6)
         
@@ -76,4 +77,27 @@ API em .NET 6 (C#) responsável por:
 
            OBS: Por default a url de acesso a API de CRUD está configurada para localhost:8000, caso necessário, 
            pode ser alterado no appsettings.json da aplicação na chave "CRUD:BaseURL"
-          
+
+
+## Deploy
+
+- Duffnization.API (C# .NET 6)
+
+    **Ambiente Windows x64**
+    
+      dotnet publish -o deploy -f net6.0 -r win-x64 -c Release --self-contained true
+
+    **Ambiente Windows x86 (NÃO RECOMENDADO)**
+
+      dotnet publish -o deploy -f net6.0 -r win-x86 -c Release --self-contained true
+
+    **Ambiente Linux x64**
+        
+        dotnet publish -o deploy -f net6.0 -r linux-x64 -c Release --self-contained true
+
+
+- Duffnization.CRUD.API (NodeJS)
+
+    npm run deploy
+
+
