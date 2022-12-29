@@ -1,10 +1,12 @@
 {
-  "name": "aumigos-api",
+  "name": "duffnization.crus.api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node  .\\src\\server.js",
+    "deploy": "xcopy \"src\" \"deploy\" /E/H/C/I && copy \"*.env\" \"deploy\" && copy \"*.json\" \"deploy\""
   },
   "keywords": [],
   "author": "",
