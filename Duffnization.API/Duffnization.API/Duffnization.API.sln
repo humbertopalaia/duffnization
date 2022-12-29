@@ -5,13 +5,15 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Duffnization.API", "Duffnization.API.csproj", "{DCE232D7-8040-407F-8F20-02DBDA129F14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duffnization.Business", "..\Duffnization.Business\Duffnization.Business.csproj", "{373E78BA-CBDE-418D-943C-D1DB3C38652D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Duffnization.Business", "..\Duffnization.Business\Duffnization.Business.csproj", "{373E78BA-CBDE-418D-943C-D1DB3C38652D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duffnization.Domain", "..\Duffnization.Domain\Duffnization.Domain.csproj", "{998E7462-B436-458B-A750-5820D7AB1E36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Duffnization.Domain", "..\Duffnization.Domain\Duffnization.Domain.csproj", "{998E7462-B436-458B-A750-5820D7AB1E36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duffnization.Spotify", "..\Duffnization.Spotfy\Duffnization.Spotify.csproj", "{16972DF2-FE4F-4CD5-8D9B-B80F10E78277}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Duffnization.Spotify", "..\Duffnization.Spotfy\Duffnization.Spotify.csproj", "{16972DF2-FE4F-4CD5-8D9B-B80F10E78277}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duffnization.Test", "..\Duffnization.Test\Duffnization.Test.csproj", "{492697C0-47A6-4D93-AFB3-4251F9E69919}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Duffnization.Test", "..\Duffnization.Test\Duffnization.Test.csproj", "{492697C0-47A6-4D93-AFB3-4251F9E69919}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Duffnization.CRUD", "..\Duffnization.CRUD\Duffnization.CRUD.csproj", "{3B327E21-1688-4DA1-8864-04A62506C62B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{492697C0-47A6-4D93-AFB3-4251F9E69919}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{492697C0-47A6-4D93-AFB3-4251F9E69919}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{492697C0-47A6-4D93-AFB3-4251F9E69919}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B327E21-1688-4DA1-8864-04A62506C62B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B327E21-1688-4DA1-8864-04A62506C62B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B327E21-1688-4DA1-8864-04A62506C62B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B327E21-1688-4DA1-8864-04A62506C62B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

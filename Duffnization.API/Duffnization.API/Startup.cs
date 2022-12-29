@@ -26,15 +26,11 @@ namespace Duffnization.API
         {
             services.AddControllers();
 
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
-            //services.AddSingleton<DocusignConfig>(c => GetDocuSignConfig(services));
-            //services.AddScoped<IDocusignAPI, DocusignAPI>();
             services.AddScoped<IBearStyleBusiness, BearStyleBusiness>();
 
-            //services.AddSingleton(c => GetConfiguration());
 
             services.AddAuthentication(options =>
             {
@@ -89,43 +85,6 @@ namespace Duffnization.API
             });
 
         }
-
-        //private DocusignConfig GetDocuSignConfig(IServiceCollection services)
-        //{
-
-        //    var parameterService = services.BuildServiceProvider().GetService<ParameterService>();
-
-        //    var environmentName = System.Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT") ?? "Production";
-
-        //    Log.Logger.Information("AMBIENTE DOCUSIGN CONFIG " + environmentName);
-
-        //    var userId = parameterService.GetByCode((int)EnumParameter.DocuSignDevelopmentUserId);
-        //    var oAuthPath = parameterService.GetByCode((int)EnumParameter.DocuSignDevelopmentOAuthPath);
-        //    var privateKey = parameterService.GetByCode((int)EnumParameter.DocuSignDevelopmentPrivateKey);
-        //    var expirationJWT = parameterService.GetByCode((int)EnumParameter.DocuSignDevelopmentExpirationJWT);
-        //    var integratorKey = parameterService.GetByCode((int)EnumParameter.DocuSignDevelopmentIntegratorKey); // clientId
-        //    var scopesToGrantConsent = parameterService.GetByCode((int)EnumParameter.DocuSignDevelopmentScopesToGrantConsent);
-        //    var responseType = parameterService.GetByCode((int)EnumParameter.DocuSignResponseType);
-        //    var redirectURIConsentGrant = parameterService.GetByCode((int)EnumParameter.DocuSignDevelopmentRedirectURIConsentGrant);
-        //    var apiAccountId = parameterService.GetByCode((int)EnumParameter.DocuSignDevelopmentAPIAccountID);
-
-
-
-
-        //    return new DocusignConfig
-        //    {
-        //        UserId = userId.Value,
-        //        OAuthPathBase = oAuthPath.Value,
-        //        PrivateKey = privateKey.Value,
-        //        ExpirationJWT = int.Parse(expirationJWT.Value),
-        //        IntegratorKey = integratorKey.Value,
-        //        ScopesToGrantConsent = scopesToGrantConsent.Value,
-        //        ResponseType = responseType.Value,
-        //        RedirectURIConsentGrant = redirectURIConsentGrant.Value,
-        //        ApiAccountID = apiAccountId.Value,
-        //        Environment = environmentName
-        //    };
-        //}
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

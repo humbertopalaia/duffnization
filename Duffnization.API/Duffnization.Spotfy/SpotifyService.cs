@@ -45,7 +45,7 @@ namespace Duffnization.Spotify
                     FormUrlEncodedContent requestBody = new FormUrlEncodedContent(requestData);
 
                     //Request Token
-                    var request = await client.PostAsync("https://accounts.spotify.com/api/token", requestBody);
+                    var request = await client.PostAsync(_config.AuthUrl, requestBody);
                     var response = await request.Content.ReadAsStringAsync();
                     spotifyToken = System.Text.Json.JsonSerializer.Deserialize<SpotifyToken>(response);
                 }

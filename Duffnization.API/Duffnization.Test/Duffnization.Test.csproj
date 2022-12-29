@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Duffnization.CRUD\Duffnization.CRUD.csproj" />
     <ProjectReference Include="..\Duffnization.Spotfy\Duffnization.Spotify.csproj" />
   </ItemGroup>
 
