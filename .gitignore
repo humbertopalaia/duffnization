@@ -170,3 +170,4 @@ compile_commands.json
 /Duffnization.API/Duffnization.Domain/obj
 /Duffnization.API/Duffnization.Spotfy/obj
 /Duffnization.API/Duffnization.Test/obj
+/Duffnization.API/Duffnization.CRUD/obj
